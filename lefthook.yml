@@ -1,0 +1,15 @@
+pre-commit:
+  parallel: true
+  commands:
+    tests:
+      glob: '*.{js,ts,tsx}'
+      run: yarn test --findRelatedTests --passWithNoTests {staged_files}
+    types:
+      glob: '*.{js,ts,tsx}'
+      run: yarn type-check
+    linting:
+      glob: '*.{js,ts,tsx}'
+      run: yarn lint --fix {staged_files}
+    formatting:
+      glob: '*.{ts,tsx,js,jsx,json}'
+      run: yarn format
